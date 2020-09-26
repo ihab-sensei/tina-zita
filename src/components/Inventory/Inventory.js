@@ -9,11 +9,11 @@ export default function Inventory({ inventory }) {
     <div className="container">
       <Form />
       <Table
-        //code = {inventory.code}
-        // expireDate={inventory.expireDate}
-        name={inventory.name}
-        quantity={inventory.unit}
-        category={inventory.brand}
+      //code = {inventory.code}
+      // expireDate={inventory.expireDate}
+      // name={inventory.name}
+      // quantity={inventory.unit}
+      // category={inventory.brand}
       />
     </div>
   );
