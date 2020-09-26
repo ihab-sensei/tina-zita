@@ -1,20 +1,14 @@
 import React from "react";
 import Form from "./Form";
-import Table from "./Table";
+import CustomizedTables from "./Table";
 
 export default function Inventory({ inventory }) {
-  console.log(inventory);
+  //console.log(inventory);
 
   return (
     <div className="container">
       <Form />
-      <Table
-      //code = {inventory.code}
-      // expireDate={inventory.expireDate}
-      // name={inventory.name}
-      // quantity={inventory.unit}
-      // category={inventory.brand}
-      />
+      <CustomizedTables inventory={inventory} />
     </div>
   );
 }
