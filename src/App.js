@@ -16,7 +16,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Route path="/admin" component={Admin} />
-        <Route path="/inventory" component={Inventory} />
+        <Route path="/inventory" component={Db} />
         <Route path="/bills" component={Bills} />
         <Route path="/orders" component={Orders} />
         <Route path="/recipes" component={Recipes} />

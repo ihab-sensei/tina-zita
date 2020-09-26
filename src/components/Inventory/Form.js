@@ -9,9 +9,10 @@ export default function Form() {
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   //   const [name, setName] = useState("");
-  console.log("brand", brand, "unit", unit);
-  const addItem = (e) => {
-    e.preventDefault();
+  // console.log("brand", brand, "unit", unit);
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
     db.collection("inventory").doc().set({
       name: name,
       price: price,
@@ -24,12 +25,8 @@ export default function Form() {
     setBrand("");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addItem();
-  };
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>
         Name:
         <input
