@@ -8,7 +8,13 @@ export default function Inventory({ inventory }) {
   return (
     <div className="container">
       <Form />
-      <Table />
+      <Table
+        //code = {inventory.code}
+        // expireDate={inventory.expireDate}
+        name={inventory.name}
+        quantity={inventory.unit}
+        category={inventory.brand}
+      />
     </div>
   );
 }
