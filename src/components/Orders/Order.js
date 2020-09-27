@@ -20,25 +20,21 @@ export default function Orders() {
     code : "",
     quantity : ""
   });
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(0);
 
   const handleChange = (e) => {
-    setInput(
-      { 
-        [e.target.name] : e.target.value
-      }
-    )
-  }
+    setInput({
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-
-  }
+    e.preventDefault();
+  };
   const addNewFood = () => {
-    const newForm = `form${form.forms.length}`
-    setForm(prevState => ({forms : prevState.forms.concat([newForm])})
-      )
-  }
+    const newForm = `form${form.forms.length}`;
+    setForm((prevState) => ({ forms: prevState.forms.concat([newForm]) }));
+  };
   return (
     <div style={{marginTop:"1rem"}}>
       <h3>Enter Order</h3>

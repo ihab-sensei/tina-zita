@@ -7,7 +7,7 @@ export default function Inventory({ inventory }) {
   console.log(inventory);
 
   return (
-    <div className="container">
+    <div className="inventoryContainer">
       <Inventorytable inventory={inventory} />
       <Form />
     </div>
