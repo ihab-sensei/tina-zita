@@ -9,7 +9,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
-
 const bills = [
   {
     ID: "1",
@@ -18,7 +17,7 @@ const bills = [
     name: "Pilavlık Pirinç",
     unitPrice: "18",
     quantity: "20",
-    totalPrice: "360"
+    totalPrice: "360",
   },
   {
     ID: "2",
@@ -27,7 +26,7 @@ const bills = [
     name: "Yeşil Mercimek",
     unitPrice: "18",
     quantity: "20",
-    totalPrice: "360"
+    totalPrice: "360",
   },
   {
     ID: "3",
@@ -36,7 +35,7 @@ const bills = [
     name: "ARO Karnobat",
     unitPrice: "18",
     quantity: "20",
-    totalPrice: "360"
+    totalPrice: "360",
   },
   {
     ID: "4",
@@ -45,9 +44,9 @@ const bills = [
     name: "Yudum Sıvıyağ",
     unitPrice: "18",
     quantity: "20",
-    totalPrice: "360"
-  }
-]
+    totalPrice: "360",
+  },
+];
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -105,12 +104,8 @@ export default function BillsTable() {
               </StyledTableCell>
             </StyledTableRow>
           ))}
-          <Button variant="contained" color="secondary">
-            ADD BILL
-          </Button>
         </TableBody>
       </Table>
     </TableContainer>
-    
   );
 }

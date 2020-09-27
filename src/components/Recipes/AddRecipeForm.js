@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import { MenuItem } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 // import FormControl from '@material-ui/core/FormControl';
 
 export default function Recipes() {
@@ -62,7 +63,7 @@ export default function Recipes() {
   };
   const classes = useStyles();
   return (
-    <div>
+    <div style={{ marginTop: "1rem" }}>
       <h3>Enter Order</h3>
       <div>
         <form
@@ -72,57 +73,59 @@ export default function Recipes() {
           autoComplete="off"
         >
           {forms.map((el, index) => (
-            <>
-              <div key={el + index}>
-                <TextField id="standard-basic" label="Enter Ingredient Name:">
-                  <input
-                    type="text"
-                    name="ingredientName"
-                    value={el.ingredientName}
-                    onChange={(e) => handleChange(e, index, "ingredientName")}
-                  ></input>{" "}
-                </TextField>
-                <TextField id="standard-basic" label="Enter Ingredient Code:">
-                  {" "}
-                  <input
-                    type="text"
-                    name="code"
-                    value={el.code}
-                    onChange={(e) => handleChange(e, index, "code")}
-                  ></input>
-                </TextField>
-                <TextField id="standard-basic" label="Enter Quantity:">
-                  {" "}
-                  <input
-                    type="number"
-                    name="quantity"
-                    value={el.quantity}
-                    onChange={(e) => handleChange(e, index, "quantity")}
-                  ></input>
-                </TextField>
-                <InputLabel id="label">Choose unit:</InputLabel>
-                <Select
-                  labelId="label"
-                  id="select"
-                  value={el.unit}
-                  onChange={(e) => handleChange(e, index, "unit")}
-                >
-                  <MenuItem value="liters">L</MenuItem>
-                  <MenuItem value="grams">GR</MenuItem>
-                </Select>
+            <div key={el + index}>
+              <TextField id="standard-basic" label="Enter Ingredient Name:">
+                <input
+                  type="text"
+                  name="ingredientName"
+                  value={el.ingredientName}
+                  onChange={(e) => handleChange(e, index, "ingredientName")}
+                ></input>{" "}
+              </TextField>
+              <TextField id="standard-basic" label="Enter Ingredient Code:">
+                {" "}
+                <input
+                  type="text"
+                  name="code"
+                  value={el.code}
+                  onChange={(e) => handleChange(e, index, "code")}
+                ></input>
+              </TextField>
+              <TextField id="standard-basic" label="Enter Quantity:">
+                {" "}
+                <input
+                  type="number"
+                  name="quantity"
+                  value={el.quantity}
+                  onChange={(e) => handleChange(e, index, "quantity")}
+                ></input>
+              </TextField>
+              <InputLabel id="label">Choose unit:</InputLabel>
+              <Select
+                labelId="label"
+                id="select"
+                value={el.unit}
+                onChange={(e) => handleChange(e, index, "unit")}
+              >
+                <MenuItem value="liters">L</MenuItem>
+                <MenuItem value="grams">GR</MenuItem>
+              </Select>
 
-                {/* <select
+              {/* <select
                   value={el.unit}
                   onChange={(e) => handleChange(e, index, "unit")}
                 >
                   <option value="liters">L</option>
                   <option value="grams">GR</option>
                 </select> */}
-              </div>
-            </>
+            </div>
           ))}
-          <button onClick={addNewForm}>Add New Recipe</button>
-          <button>Submit</button>
+          <Button variant="contained" color="primary" onClick={addNewForm}>
+            Add New Ingredient
+          </Button>
+          <Button variant="contained" color="secondary">
+            Submit
+          </Button>
         </form>
       </div>
     </div>

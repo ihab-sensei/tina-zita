@@ -1,8 +1,8 @@
-import { Label } from "@material-ui/icons";
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,16 +12,23 @@ const useStyles = makeStyles((theme) => ({
       width: "25ch",
     },
   },
+  root2: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
 }));
 
 export default function Orders() {
   const classes = useStyles();
+
+  // const [alert, setAlert] = useState(false);
   const [form, setForm] = useState({ forms: ["form0"] });
   const [input, setInput] = useState({
     code: "",
     quantity: "",
   });
-  const [quantity, setQuantity] = useState(0);
 
   const handleChange = (e) => {
     setInput({
@@ -31,9 +38,11 @@ export default function Orders() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("Success!");
+    // setAlert(true);
   };
   const addNewFood = (e) => {
-    e.persist();
+    //e.persist();
     const newForm = `form${form.forms.length}`;
     setForm((prevState) => ({ forms: prevState.forms.concat([newForm]) }));
   };
@@ -41,41 +50,45 @@ export default function Orders() {
     <div className="ordersContainer">
       <h3>Enter Order</h3>
       <div>
-        {form.forms.map((el) => (
-          <form
-            className={classes.root}
-            noValidate
-            autoComplete="off"
-            key={el}
-            onSubmit={handleSubmit}
+        <form className={classes.root} noValidate autoComplete="off">
+          {form.forms.map((el, index) => (
+            <div key={el + index}>
+              <TextField
+                id="outlined-helperText"
+                helperText="Enter Food Code"
+                variant="outlined"
+                name={"code" + el}
+                value={el.code}
+                onChange={(e) => handleChange(e)}
+              />
+              <TextField
+                id="outlined-helperText"
+                helperText="Enter Quantity"
+                variant="outlined"
+                type="text"
+                name={"quantity" + el}
+                value={el.quantity}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+          ))}
+          <Button onClick={addNewFood} variant="contained" color="primary">
+            Add New Food
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={(e) => handleSubmit(e)} //check this later
           >
-            <TextField
-              id="outlined-helperText"
-              helperText="Enter Food Code"
-              variant="outlined"
-              name={"code" + el}
-              value={input.code}
-              onChange={(e) => handleChange(e)}
-            />
-
-            <TextField
-              id="outlined-helperText"
-              helperText="Enter Quantity"
-              variant="outlined"
-              type="text"
-              name={"quantity" + el}
-              value={input.quantity}
-              onChange={(e) => handleChange(e)}
-            />
-
-            <Button onClick={addNewFood} variant="contained" color="primary">
-              Add New Food
-            </Button>
-            <Button variant="contained" color="secondary">
-              Submit
-            </Button>
-          </form>
-        ))}
+            Submit
+          </Button>
+        </form>
+        {/* {alert && (
+          <Alert severity="success">
+            <AlertTitle>Success</AlertTitle>
+            Success
+          </Alert>
+        )} */}
       </div>
     </div>
   );
