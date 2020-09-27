@@ -29,7 +29,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+    minWidth: 500,
   },
 });
 
@@ -37,7 +37,7 @@ export default function Inventorytable({ inventory }) {
   const classes = useStyles();
   console.log(inventory);
   return (
-    <TableContainer component={Paper}>
+    <TableContainer className="container" component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>

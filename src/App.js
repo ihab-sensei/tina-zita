@@ -9,12 +9,13 @@ import Navbar from "../src/components/Navbar/Navbar";
 import Bills from "../src/components/Bills/Bills";
 import Recipes from "../src/components/Recipes/Recipes";
 import Orders from "../src/components/Orders/Order";
+import Drawer from "../src/components/Drawer/Drawer";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Drawer />
         <Route path="/admin" component={Admin} />
         <Route path="/inventory" component={Db} />
         <Route path="/bills" component={Bills} />
