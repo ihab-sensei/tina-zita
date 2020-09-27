@@ -3,13 +3,11 @@ import Form from "./Form";
 import Inventorytable from "./Table";
 import "./style.css";
 
-export default function Inventory({ inventory }) {
-  console.log(inventory);
-
+export default function Inventory({ inventory, reFetch }) {
   return (
     <div className="inventoryContainer">
       <Inventorytable inventory={inventory} />
-      <Form />
+      <Form reFetch={reFetch} />
     </div>
   );
 }

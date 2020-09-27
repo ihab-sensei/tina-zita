@@ -44,14 +44,16 @@ export default function RecipeTable({ recipe }) {
             <StyledTableCell>Code</StyledTableCell>
             <StyledTableCell align="right">Product Name</StyledTableCell>
             <StyledTableCell align="right">Quantity</StyledTableCell>
+            <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {recipe.map((row, index) => (
             <StyledTableRow key={row.code + index}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.code}
               </StyledTableCell>
+              <StyledTableCell align="right">{row.name}</StyledTableCell>
               <StyledTableCell align="right">{row.amount} GR</StyledTableCell>
               <StyledTableCell align="right">
                 <Button variant="contained" color="primary">

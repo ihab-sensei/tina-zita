@@ -76,7 +76,7 @@ export default function BillsTable() {
   const classes = useStyles();
   console.log(bills);
   return (
-    <TableContainer component={Paper}>
+    <TableContainer className="container" component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
@@ -85,6 +85,7 @@ export default function BillsTable() {
             <StyledTableCell align="right">Unit Price</StyledTableCell>
             <StyledTableCell align="right">Quantity</StyledTableCell>
             <StyledTableCell align="right">Total</StyledTableCell>
+            <StyledTableCell align="right">Edit</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -98,7 +99,7 @@ export default function BillsTable() {
               <StyledTableCell align="right">{item.quantity}</StyledTableCell>
               <StyledTableCell align="right">{item.totalPrice}</StyledTableCell>
               <StyledTableCell align="right">
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="primary">
                   Edit
                 </Button>
               </StyledTableCell>

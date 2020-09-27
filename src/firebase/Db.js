@@ -1,30 +1,27 @@
 import React, { useState, useEffect } from "react";
 import db from "../firebaseConfig";
 import Inventory from "../components/Inventory/Inventory";
-import Recipes from "../components/Recipes/Recipes";
 
 function Db() {
   const [inventory, setInventory] = useState([]);
   // const [recipe, setRecipe] = useState([]);
+  const [newData, setNewData] = useState(0);
 
   useEffect(() => {
+    //let unmounted = false;
     async function fetchData() {
       const inventoryResponse = await db.collection("inventory").get();
       const items = inventoryResponse.docs.map((item) => item.data());
       setInventory(items);
-      // console.log(inventoryResponse);
-
-      // const recipeResponse = await db.collection("recipe").get();
-      // const recipes = recipeResponse.docs.map((recipe) => recipe.data());
-      // setRecipe(recipes);
+      return () => {};
     }
     fetchData();
-  }, []);
-  console.log("hello");
+    //return () => { unmounted = true };
+  }, [newData]); // this causes re-render in every change !!
 
   return (
     <>
-      <Inventory inventory={inventory} />
+      <Inventory reFetch={setNewData} inventory={inventory} />
     </>
   );
 }
