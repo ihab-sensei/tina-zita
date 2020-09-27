@@ -12,7 +12,7 @@ function Db() {
       const inventoryResponse = await db.collection("inventory").get();
       const items = inventoryResponse.docs.map((item) => item.data());
       setInventory(items);
-      console.log(inventoryResponse);
+      // console.log(inventoryResponse);
 
       // const recipeResponse = await db.collection("recipe").get();
       // const recipes = recipeResponse.docs.map((recipe) => recipe.data());
