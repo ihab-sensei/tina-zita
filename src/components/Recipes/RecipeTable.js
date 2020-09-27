@@ -33,9 +33,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Inventorytable({ inventory }) {
+export default function RecipeTable({ recipe }) {
   const classes = useStyles();
-  // console.log(inventory);
+  console.log(recipe);
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
@@ -44,21 +44,15 @@ export default function Inventorytable({ inventory }) {
             <StyledTableCell>Code</StyledTableCell>
             <StyledTableCell align="right">Product Name</StyledTableCell>
             <StyledTableCell align="right">Quantity</StyledTableCell>
-            <StyledTableCell align="right">Category</StyledTableCell>
-            <StyledTableCell align="right">Expiery date</StyledTableCell>
-            <StyledTableCell align="right">Edit</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {inventory.map((row) => (
-            <StyledTableRow key={row.name}>
+          {recipe.map((row) => (
+            <StyledTableRow key={row.code}>
               <StyledTableCell component="th" scope="row">
-                {row.brand}
+                {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.name}</StyledTableCell>
-              <StyledTableCell align="right">{row.unit}</StyledTableCell>
-              <StyledTableCell align="right">{row.category}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+              <StyledTableCell align="right">{row.amount} GR</StyledTableCell>
               <StyledTableCell align="right">
                 <Button variant="contained" color="primary">
                   Edit
