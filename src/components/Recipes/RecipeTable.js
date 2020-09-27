@@ -47,8 +47,8 @@ export default function RecipeTable({ recipe }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {recipe.map((row) => (
-            <StyledTableRow key={row.code}>
+          {recipe.map((row, index) => (
+            <StyledTableRow key={row.code + index}>
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
