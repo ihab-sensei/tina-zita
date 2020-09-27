@@ -7,8 +7,8 @@ export default function Bills() {
   //console.log(inventory);
 
   return (
-    <div className="container">
-      <BillsTable  />
+    <div className="billsContainer">
+      <BillsTable />
       <BillsForm />
     </div>
   );

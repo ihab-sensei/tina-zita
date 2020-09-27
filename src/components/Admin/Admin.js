@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.css";
 
 export default function Admin() {
   return (
-    <div>
-      <p>it's Admin Page</p>
+    <div className="adminContainer">
+      <h1>it's Admin Page</h1>
     </div>
   );
 }

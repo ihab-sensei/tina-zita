@@ -93,8 +93,19 @@ export default function ClippedDrawer() {
           <List>
             {["bills"].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon></ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemIcon>
+                  {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                </ListItemIcon>
+                <NavLink
+                  to={"/" + text}
+                  exact
+                  style={link}
+                  activeStyle={{
+                    color: "red",
+                  }}
+                >
+                  <ListItemText primary={text} />
+                </NavLink>
               </ListItem>
             ))}
           </List>

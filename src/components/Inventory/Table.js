@@ -29,7 +29,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 500,
+    minWidth: 700,
   },
 });
 
