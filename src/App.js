@@ -4,7 +4,6 @@ import "./App.css";
 import Db from "../src/firebase/Db";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Admin from "../src/components/Admin/Admin";
-import Inventory from "../src/components/Inventory/Inventory";
 import Navbar from "../src/components/Navbar/Navbar";
 import Bills from "../src/components/Bills/Bills";
 import Recipes from "../src/components/Recipes/Recipes";
