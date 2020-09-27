@@ -1,46 +1,82 @@
 import { Label } from "@material-ui/icons";
-import React, {useState} from "react";
+import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+import "./style.css";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+  },
+}));
 
 export default function Orders() {
-  const [form, setForm] = useState({forms : ["form0"]});
+  const classes = useStyles();
+  const [form, setForm] = useState({ forms: ["form0"] });
   const [input, setInput] = useState({
-    code : "",
-    quantity : 0
+    code: "",
+    quantity: "",
   });
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(0);
 
   const handleChange = (e) => {
-    setInput(
-      { 
-        [e.target.name] : e.target.value
-      }
-    )
-  }
+    setInput({
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-
-  }
-  const addNewFood = () => {
-    const newForm = `form${form.forms.length}`
-    setForm(prevState => ({forms : prevState.forms.concat([newForm])})
-      )
-  }
+    e.preventDefault();
+  };
+  const addNewFood = (e) => {
+    e.persist();
+    const newForm = `form${form.forms.length}`;
+    setForm((prevState) => ({ forms: prevState.forms.concat([newForm]) }));
+  };
   return (
-    <div>
+    <div className="ordersContainer">
       <h3>Enter Order</h3>
-      <div>      
-        {form.forms.map((el) => <form key={el} onSubmit={handleSubmit}>
-          <label>Enter Food Code: 
-            <input type="text" name={"code" + el} value={input.code} onChange={(e) => handleChange(e)}></input>
-          </label>
-          <label>Enter Quantity: 
-            <input type="text" name={"quantity" + el} value={input.quantity}  onChange={(e) => handleChange(e)}></input>
-          </label>
-          <button onClick={addNewFood}>Add New Food</button>
-          <button>Submit</button>
-      </form>)}
-    </div>
+      <div>
+        {form.forms.map((el) => (
+          <form
+            className={classes.root}
+            noValidate
+            autoComplete="off"
+            key={el}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              id="outlined-helperText"
+              helperText="Enter Food Code"
+              variant="outlined"
+              name={"code" + el}
+              value={input.code}
+              onChange={(e) => handleChange(e)}
+            />
+
+            <TextField
+              id="outlined-helperText"
+              helperText="Enter Quantity"
+              variant="outlined"
+              type="text"
+              name={"quantity" + el}
+              value={input.quantity}
+              onChange={(e) => handleChange(e)}
+            />
+
+            <Button onClick={addNewFood} variant="contained" color="primary">
+              Add New Food
+            </Button>
+            <Button variant="contained" color="secondary">
+              Submit
+            </Button>
+          </form>
+        ))}
+      </div>
     </div>
   );
 }

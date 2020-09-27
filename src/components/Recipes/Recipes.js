@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddRecipeForm from "./AddRecipeForm";
 import RecipeTable from "./RecipeTable";
 import db from "../../firebaseConfig";
+import "./style.css";
 
 export default function Recipes() {
   const [recipe, setRecipe] = useState([]);
@@ -16,7 +17,7 @@ export default function Recipes() {
     fetchRecipeData();
   }, []);
   return (
-    <div className="container">
+    <div className="recipesContainer">
       <RecipeTable recipe={recipe} />
       <AddRecipeForm />
     </div>
