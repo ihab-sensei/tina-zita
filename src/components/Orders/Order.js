@@ -31,7 +31,8 @@ export default function Orders() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const addNewFood = () => {
+  const addNewFood = (e) => {
+    e.persist()
     const newForm = `form${form.forms.length}`;
     setForm((prevState) => ({ forms: prevState.forms.concat([newForm]) }));
   };
