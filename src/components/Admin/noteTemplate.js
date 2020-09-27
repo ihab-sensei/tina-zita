@@ -24,14 +24,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard({note, author, date, urgency}) {
+export default function SimpleCard({note, author, date, urgency, add, deleteItem}) {
   const classes = useStyles();
-  const handleClick = ()=>{
-    
-  }
-  const handleDelClick = () => {
-
-  }
 //note={note} author={author} date={date} urgency={urgent}
   return (
     <Card className={classes.root}>
@@ -50,8 +44,8 @@ export default function SimpleCard({note, author, date, urgency}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="secondary" onClick={handleClick()}>Add Note</Button>
-        <Button size="small" color='primary' onClick={handleDelClick()}>Delete</Button>
+        <Button size="small" color="secondary" onClick={add} >Add Note</Button>
+        <Button size="small" color='primary' onClick={deleteItem}>Delete</Button>
       </CardActions>
     </Card>
   );
