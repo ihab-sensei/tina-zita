@@ -18,6 +18,7 @@ export default function Recipes() {
     },
   ]);
   console.log(forms);
+
   const addRecipe = () => {
     db.collection("recipe")
       .doc()
@@ -42,6 +43,7 @@ export default function Recipes() {
     alert("Success! Your recipe list has been updated.");
     addRecipe();
   };
+
   const handleChange = (e, index, name) => {
     console.log("hello");
     // [e.target.name]: e.target.value,

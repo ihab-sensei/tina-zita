@@ -70,50 +70,38 @@ export default function BillsForm() {
         >
           {forms.map((el, index) => (
             <div key={el + index}>
-              <TextField id="standard-basic" label="Enter Item Name:">
+              <TextField id="standard-basic" label="Enter Item Id">
                 <input
                   type="text"
-                  name="name"
-                  value={el.name}
-                  onChange={(e) => handleChange(e, index, "name")}
-                ></input>{" "}
-              </TextField>
-              <TextField id="standard-basic" label="Enter Unit Price Code:">
-                {" "}
-                <input
-                  type="text"
-                  name="unitPrice"
-                  value={el.unitPrice}
-                  onChange={(e) => handleChange(e, index, "unitPrice")}
+                  name="id"
+                  value={el.id}
+                  onChange={(e) => handleChange(e, index, "id")}
                 ></input>
               </TextField>
-              <TextField id="standard-basic" label="Enter Quantity:">
-                {" "}
+              <TextField id="standard-basic" label="Enter Unit Name">
+                <input
+                  type="text"
+                  name="Name"
+                  value={el.Name}
+                  onChange={(e) => handleChange(e, index, "Name")}
+                ></input>
+              </TextField>
+              <TextField id="standard-basic" label="Enter Price">
                 <input
                   type="number"
-                  name="quantity"
-                  value={el.quantity}
-                  onChange={(e) => handleChange(e, index, "quantity")}
+                  name="price"
+                  value={el.price}
+                  onChange={(e) => handleChange(e, index, "price")}
                 ></input>
               </TextField>
-
-              {/* {<Select
-                  labelId="label"
-                  id="select"
-                  value={el.totalPrice}
-                  onChange={(e) => handleChange(e, index, "totalPrice")}
-                >
-                  <MenuItem value="liters">L</MenuItem>
-                  <MenuItem value="grams">GR</MenuItem>
-                </Select>} */}
-
-              {/* <select
-                  value={el.unit}
-                  onChange={(e) => handleChange(e, index, "unit")}
-                >
-                  <option value="liters">L</option>
-                  <option value="grams">GR</option>
-                </select> */}
+              <TextField id="standard-basic" label="Enter Quantity">
+                <input
+                  type="number"
+                  name="Quantity"
+                  value={el.Quantity}
+                  onChange={(e) => handleChange(e, index, "Quantity")}
+                ></input>
+              </TextField>
             </div>
           ))}
           <Button variant="contained" color="primary" onClick={addNewItem}>

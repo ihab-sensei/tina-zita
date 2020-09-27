@@ -9,7 +9,7 @@ export default function Recipes() {
 
   useEffect(() => {
     async function fetchRecipeData() {
-      const recipeResponse = await db.collection("recipe").doc("FAL2").get();
+      const recipeResponse = await db.collection("recipe").doc("FAL1").get();
       const recipeData = recipeResponse.data();
       // const items = inventoryResponse.docs.map((item) => item.data());
       setRecipe(recipeData.ingredients);

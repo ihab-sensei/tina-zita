@@ -35,17 +35,19 @@ const useStyles = makeStyles({
 
 export default function Inventorytable({ inventory }) {
   const classes = useStyles();
-  // console.log(inventory);
+
   return (
     <TableContainer className="container" component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Code</StyledTableCell>
-            <StyledTableCell align="right">Product Name</StyledTableCell>
+            <StyledTableCell>Product Name </StyledTableCell>
+            <StyledTableCell align="right">Brand</StyledTableCell>
             <StyledTableCell align="right">Quantity</StyledTableCell>
+            <StyledTableCell align="right">Unit</StyledTableCell>
+            <StyledTableCell align="right">Price</StyledTableCell>
             <StyledTableCell align="right">Category</StyledTableCell>
-            <StyledTableCell align="right">Expiery date</StyledTableCell>
+            <StyledTableCell align="right">Expiry date</StyledTableCell>
             <StyledTableCell align="right">Edit</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -53,12 +55,14 @@ export default function Inventorytable({ inventory }) {
           {inventory.map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell component="th" scope="row">
-                {row.brand}
+                {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.name}</StyledTableCell>
-              <StyledTableCell align="right">{row.unit}</StyledTableCell>
+              <StyledTableCell align="right">{row.brand}</StyledTableCell>
+              <StyledTableCell align="right">{row.quantity}</StyledTableCell>
+              <StyledTableCell align="right">{row.unit} </StyledTableCell>
+              <StyledTableCell align="right">{row.price} TL</StyledTableCell>
               <StyledTableCell align="right">{row.category}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+              <StyledTableCell align="right">{row.expiryDate}</StyledTableCell>
               <StyledTableCell align="right">
                 <Button variant="contained" color="primary">
                   Edit

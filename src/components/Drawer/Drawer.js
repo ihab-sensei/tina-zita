@@ -10,7 +10,11 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { DashboardIcon, AllInboxIcon } from "@material-ui/icons/";
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import AllInboxIcon from '@material-ui/icons/AllInbox';
+import FastfoodIcon from '@material-ui/icons/Fastfood';
+import KitchenIcon from '@material-ui/icons/Kitchen';
+import ReceiptIcon from '@material-ui/icons/Receipt';
 import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -71,44 +75,97 @@ export default function ClippedDrawer() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            {["admin", "inventory", "orders", "recipes"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                </ListItemIcon>
-                <NavLink
-                  to={"/" + text}
+            <NavLink
+                  to={"/admin"}
                   exact
                   style={link}
                   activeStyle={{
                     color: "red",
                   }}
                 >
-                  <ListItemText primary={text} />
-                </NavLink>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {["bills"].map((text, index) => (
-              <ListItem button key={text}>
+              <ListItem button key={"admin"}>
                 <ListItemIcon>
-                  {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                  <DashboardIcon />
                 </ListItemIcon>
-                <NavLink
-                  to={"/" + text}
+                
+                  <ListItemText primary={"Admin"} />
+                
+              </ListItem>
+              </NavLink>
+              <Divider />
+              <NavLink
+                  to={"/inventory"}
                   exact
                   style={link}
                   activeStyle={{
                     color: "red",
                   }}
                 >
-                  <ListItemText primary={text} />
-                </NavLink>
+              <ListItem button key={"inventory"}>
+                <ListItemIcon>
+                  <AllInboxIcon />
+                </ListItemIcon>
+                
+                  <ListItemText primary={"Inventory"} />
+                
               </ListItem>
-            ))}
+              </NavLink>
+              <Divider />
+              <NavLink
+                  to={"/orders"}
+                  exact
+                  style={link}
+                  activeStyle={{
+                    color: "red",
+                  }}
+                >
+              <ListItem button key={"orders"}>
+                <ListItemIcon>
+                  <FastfoodIcon />
+                </ListItemIcon>
+                
+                  <ListItemText primary={"Orders"} />
+                
+              </ListItem>
+              </NavLink>
+              <Divider />
+              <NavLink
+                  to={"/recipes"}
+                  exact
+                  style={link}
+                  activeStyle={{
+                    color: "red",
+                  }}
+                >
+              <ListItem button key={"recipes"}>
+                <ListItemIcon>
+                  <KitchenIcon />
+                </ListItemIcon>
+                
+                  <ListItemText primary={"Recipes"} />
+                
+              </ListItem>
+              </NavLink>
+              <Divider />
+              <NavLink
+              to={"/bills"}
+              exact
+              style={link}
+              activeStyle={{
+                color: "red",
+              }}
+            >
+              <ListItem button key={"bills"}>
+                <ListItemIcon>
+                <ReceiptIcon />
+                </ListItemIcon>
+                
+                  <ListItemText primary={"Bills"} />
+                
+              </ListItem>
+              </NavLink>
           </List>
+          
         </div>
       </Drawer>
     </div>

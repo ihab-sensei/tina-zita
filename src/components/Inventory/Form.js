@@ -7,115 +7,164 @@ import Select from "@material-ui/core/Select";
 import { MenuItem } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 
-export default function Form() {
-  // const [code, setCode] = useState("");
-  // const [expireDate, setExpireDate] = useState("");
-  /*const [unit, setUnit] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [name, setName] = useState("");
-  const [brand, setBrand] = useState("");*/
-  //   const [name, setName] = useState("");
-  // console.log("brand", brand, "unit", unit);
-  const [form, setForm] = useState({ forms: ["form0"] });
-  const [input, setInput] = useState([
+export default function Form({ inventory, reFetch }) {
+  const [forms, setForms] = useState([
     {
       name: "",
       price: 0,
       brand: "",
       unit: "",
       quantity: 0,
+      category: "",
+      expiryDate: "",
+      code: "",
     },
   ]);
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      "& > *": {
-        margin: theme.spacing(1),
-        width: "25ch",
+  {
+    const useStyles = makeStyles((theme) => ({
+      root: {
+        "& > *": {
+          margin: theme.spacing(1),
+          width: "25ch",
+        },
       },
-    },
-  }));
+    }));
 
-  const handleChange = (e) => {
-    setInput({
-      [e.target.name]: e.target.value,
-    });
-  };
+    // const addRecipe = () => {
+    //   db.collection("recipe")
+    //     .doc()
+    //     .set({
+    //       ingredients: [...forms],
+    //       recipeName: "Falafel",
+    //     });
+    // };
 
-  const addNewForm = () => {
-    const newForm = `form${form.forms.length}`;
-    setForm((prevState) => ({ forms: prevState.forms.concat([newForm]) }));
-  };
+    const addNewInventoryItem = () => {
+      db.collection("inventory")
+        .doc(forms[0].name)
+        .set({
+          ...forms[0],
+        });
+    };
 
-  const classes = useStyles();
+    const addNewForm = () => {
+      setForms([
+        ...forms,
+        {
+          name: "",
+          price: 0,
+          quantity: 0,
+          unit: "",
+          brand: "",
+          category: "",
+          expiryDate: "",
+        },
+      ]);
+    };
 
-  const handleSubmit = (e) => {
-    alert("Success! Your inventory has been updated.");
-    e.preventDefault();
-  };
+    const handleChange = (e, index, name) => {
+      e.persist();
+      setForms((prevForms) => {
+        const newForms = [...prevForms];
+        console.log(newForms);
+        newForms[index][name] = e.target.value;
+        return newForms;
+      });
+    };
 
-  return (
-    <div style={{ marginTop: "1rem" }}>
-      <h3>Enter Item</h3>
-      <div>
-        <form className={classes.root} noValidate autoComplete="off">
-          {form.forms.map((el, index) => (
-            <div key={el + index}>
-              <TextField
-                id="standard-basic"
-                label="Enter Item Name:"
-                type="text"
-                name="name"
-                value={el.name}
-                onChange={(e) => handleChange(e)}
-              />
+    const classes = useStyles();
 
-              <TextField
-                id="standard-basic"
-                label="Enter Item Price:"
-                type="number"
-                name="price"
-                value={el.code}
-                onChange={(e) => handleChange(e)}
-              />
+    const handleSubmit = (e) => {
+      alert("Success! Your inventory has been updated.");
+      addNewInventoryItem();
+      reFetch(1);
+    };
 
-              <TextField
-                id="standard-basic"
-                label="Enter Brand:"
-                type="text"
-                name="brand"
-                value={el.brand}
-                onChange={(e) => handleChange(e)}
-              />
+    return (
+      <div style={{ marginTop: "1rem" }}>
+        <h3>Enter Item</h3>
+        <div>
+          <form className={classes.root} noValidate autoComplete="off">
+            {forms.map((el, index) => (
+              <div key={el + index}>
+                <TextField
+                  id="standard-basic"
+                  label="Enter Item Name"
+                  type="text"
+                  name="name"
+                  value={el.name}
+                  onChange={(e) => handleChange(e, index, "name")}
+                />
 
-              <TextField
-                id="standard-basic"
-                label="Enter Quantity:"
-                type="number"
-                name="quantity"
-                value={el.quantity}
-                onChange={(e) => handleChange(e)}
-              />
+                <TextField
+                  id="standard-basic"
+                  label="Enter Item Price"
+                  type="number"
+                  name="price"
+                  value={el.price}
+                  onChange={(e) => handleChange(e, index, "price")}
+                />
 
-              <InputLabel id="label">Choose unit:</InputLabel>
-              <Select
-                labelId="label"
-                id="select"
-                value={el.unit}
-                onChange={(e) => handleChange(e)}
-              >
-                <MenuItem value="liters">L</MenuItem>
-                <MenuItem value="grams">GR</MenuItem>
-              </Select>
-            </div>
-          ))}
-          <Button variant="contained" color="primary" onClick={addNewForm}>
-            Add New Item
-          </Button>
-          <Button variant="contained" color="secondary" onClick={handleSubmit}>
-            Submit
-          </Button>
-        </form>
+                <TextField
+                  id="standard-basic"
+                  label="Enter Brand"
+                  type="text"
+                  name="brand"
+                  value={el.brand}
+                  onChange={(e) => handleChange(e, index, "brand")}
+                />
+
+                <TextField
+                  id="standard-basic"
+                  label="Enter Category"
+                  type="text"
+                  name="category"
+                  value={el.category}
+                  onChange={(e) => handleChange(e, index, "category")}
+                />
+                <TextField
+                  id="standard-basic"
+                  label="Enter Expiry Date"
+                  type="text"
+                  name="expiryDate"
+                  value={el.expiryDate}
+                  onChange={(e) => handleChange(e, index, "expiryDate")}
+                />
+
+                <TextField
+                  id="standard-basic"
+                  label="Enter Quantity"
+                  type="number"
+                  name="quantity"
+                  value={el.quantity}
+                  onChange={(e) => handleChange(e, index, "quantity")}
+                />
+
+                <InputLabel id="label">Choose unit:</InputLabel>
+                <Select
+                  labelId="label"
+                  id="select"
+                  value={el.unit}
+                  onChange={(e) => handleChange(e, index, "unit")}
+                >
+                  <MenuItem value="liters">L</MenuItem>
+                  <MenuItem value="grams">GR</MenuItem>
+                </Select>
+              </div>
+            ))}
+            <Button variant="contained" color="primary" onClick={addNewForm}>
+              Add New Item
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
