@@ -1,59 +1,82 @@
+import { Label } from "@material-ui/icons";
 import React, { useState } from "react";
-import db from "../../firebaseConfig";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+import "./style.css";
 
-export default function Form() {
-  // const [code, setCode] = useState("");
-  // const [expireDate, setExpireDate] = useState("");
-  const [unit, setUnit] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [name, setName] = useState("");
-  const [brand, setBrand] = useState("");
-  //   const [name, setName] = useState("");
-  // console.log("brand", brand, "unit", unit);
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+  },
+}));
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    db.collection("inventory").doc().set({
-      name: name,
-      price: price,
-      unit: unit,
-      brand: brand,
+export default function Orders() {
+  const classes = useStyles();
+  const [form, setForm] = useState({ forms: ["form0"] });
+  const [input, setInput] = useState({
+    code: "",
+    quantity: "",
+  });
+  
+
+  const handleChange = (e) => {
+    setInput({
+      [e.target.name]: e.target.value,
     });
-    setName("");
-    setPrice("");
-    setUnit("");
-    setBrand("");
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  const addNewFood = (e) => {
+    e.persist();
+    const newForm = `form${form.forms.length}`;
+    setForm((prevState) => ({ forms: prevState.forms.concat([newForm]) }));
+  };
   return (
-    <form>
-      <label>
-        Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        Price:
-        <input
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        Unit:
-        <input
-          type="number"
-          value={unit}
-          onChange={(e) => setUnit(e.target.value)}
-        />
-        Brand:
-        <input
-          type="text"
-          value={brand}
-          onChange={(e) => setBrand(e.target.value)}
-        />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+    <div style={{marginTop: "1rem"}}>
+      <h3>Enter Order</h3>
+      <div>
+        {form.forms.map((el) => (
+          <form
+            className={classes.root}
+            noValidate
+            autoComplete="off"
+            key={el}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              id="outlined-helperText"
+              helperText="Enter Food Code"
+              variant="outlined"
+              name={"code" + el}
+              value={input.code}
+              onChange={(e) => handleChange(e)}
+            />
+
+            <TextField
+              id="outlined-helperText"
+              helperText="Enter Quantity"
+              variant="outlined"
+              type="text"
+              name={"quantity" + el}
+              value={input.quantity}
+              onChange={(e) => handleChange(e)}
+            />
+
+            <Button onClick={addNewFood} variant="contained" color="primary">
+              Add New Food
+            </Button>
+            <Button variant="contained" color="secondary">
+              Submit
+            </Button>
+          </form>
+        ))}
+      </div>
+    </div>
   );
 }
