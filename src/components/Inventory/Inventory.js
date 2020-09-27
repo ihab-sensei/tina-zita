@@ -4,7 +4,7 @@ import Inventorytable from "./Table";
 import "./style.css";
 
 export default function Inventory({ inventory }) {
-  //console.log(inventory);
+  console.log(inventory);
 
   return (
     <div className="container">
