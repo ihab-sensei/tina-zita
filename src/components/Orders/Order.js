@@ -21,7 +21,6 @@ export default function Orders() {
     code: "",
     quantity: "",
   });
-  const [quantity, setQuantity] = useState(0);
 
   const handleChange = (e) => {
     setInput({
