@@ -66,13 +66,24 @@ export default function Orders() {
                 helperText="Enter Quantity"
                 variant="outlined"
                 type="number"
+                InputProps={{
+                  inputProps: {
+                    max: 100,
+                    min: 1,
+                  },
+                }}
                 name={"quantity" + el}
                 value={el.quantity}
                 onChange={(e) => handleChange(e)}
               />
             </div>
           ))}
-          <Button onClick={addNewFood} variant="contained" color="primary">
+          <Button
+            style={{ margin: "0px 10px" }}
+            onClick={addNewFood}
+            variant="contained"
+            color="primary"
+          >
             Add New Food
           </Button>
           <Button

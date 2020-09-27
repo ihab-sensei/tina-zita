@@ -15,6 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Drawer />
+        <Route exact path="/" component={Admin} />
         <Route path="/admin" component={Admin} />
         <Route path="/inventory" component={Db} />
         <Route path="/bills" component={Bills} />

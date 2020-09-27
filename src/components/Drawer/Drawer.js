@@ -10,13 +10,13 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import AllInboxIcon from '@material-ui/icons/AllInbox';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
-import KitchenIcon from '@material-ui/icons/Kitchen';
-import ReceiptIcon from '@material-ui/icons/Receipt';
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import AllInboxIcon from "@material-ui/icons/AllInbox";
+import FastfoodIcon from "@material-ui/icons/Fastfood";
+import KitchenIcon from "@material-ui/icons/Kitchen";
+import ReceiptIcon from "@material-ui/icons/Receipt";
 import { NavLink } from "react-router-dom";
-
+import Footer from "../Footer/Footer";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -76,78 +76,74 @@ export default function ClippedDrawer() {
         <div className={classes.drawerContainer}>
           <List>
             <NavLink
-                  to={"/admin"}
-                  exact
-                  style={link}
-                  activeStyle={{
-                    color: "red",
-                  }}
-                >
+              to={"/admin"}
+              exact
+              style={link}
+              activeStyle={{
+                color: "red",
+              }}
+            >
               <ListItem button key={"admin"}>
                 <ListItemIcon>
                   <DashboardIcon />
                 </ListItemIcon>
-                
-                  <ListItemText primary={"Admin"} />
-                
+
+                <ListItemText primary={"Admin"} />
               </ListItem>
-              </NavLink>
-              <Divider />
-              <NavLink
-                  to={"/inventory"}
-                  exact
-                  style={link}
-                  activeStyle={{
-                    color: "red",
-                  }}
-                >
+            </NavLink>
+            <Divider />
+            <NavLink
+              to={"/inventory"}
+              exact
+              style={link}
+              activeStyle={{
+                color: "red",
+              }}
+            >
               <ListItem button key={"inventory"}>
                 <ListItemIcon>
                   <AllInboxIcon />
                 </ListItemIcon>
-                
-                  <ListItemText primary={"Inventory"} />
-                
+
+                <ListItemText primary={"Inventory"} />
               </ListItem>
-              </NavLink>
-              <Divider />
-              <NavLink
-                  to={"/orders"}
-                  exact
-                  style={link}
-                  activeStyle={{
-                    color: "red",
-                  }}
-                >
+            </NavLink>
+            <Divider />
+            <NavLink
+              to={"/orders"}
+              exact
+              style={link}
+              activeStyle={{
+                color: "red",
+              }}
+            >
               <ListItem button key={"orders"}>
                 <ListItemIcon>
                   <FastfoodIcon />
                 </ListItemIcon>
-                
-                  <ListItemText primary={"Orders"} />
-                
+
+                <ListItemText primary={"Orders"} />
               </ListItem>
-              </NavLink>
-              <Divider />
-              <NavLink
-                  to={"/recipes"}
-                  exact
-                  style={link}
-                  activeStyle={{
-                    color: "red",
-                  }}
-                >
+            </NavLink>
+            <Divider />
+            <NavLink
+              to={"/recipes"}
+              exact
+              style={link}
+              activeStyle={{
+                color: "red",
+              }}
+            >
               <ListItem button key={"recipes"}>
                 <ListItemIcon>
                   <KitchenIcon />
                 </ListItemIcon>
-                
-                  <ListItemText primary={"Recipes"} />
-                
+
+                <ListItemText primary={"Recipes"} />
               </ListItem>
-              </NavLink>
-              <Divider />
-              <NavLink
+            </NavLink>
+            <Divider />
+            <NavLink
               to={"/bills"}
               exact
               style={link}
@@ -157,16 +153,15 @@ export default function ClippedDrawer() {
             >
               <ListItem button key={"bills"}>
                 <ListItemIcon>
-                <ReceiptIcon />
+                  <ReceiptIcon />
                 </ListItemIcon>
-                
-                  <ListItemText primary={"Bills"} />
-                
+
+                <ListItemText primary={"Bills"} />
               </ListItem>
-              </NavLink>
+            </NavLink>
           </List>
-          
         </div>
+        <Footer />
       </Drawer>
     </div>
   );

@@ -85,73 +85,75 @@ export default function Form({ inventory, reFetch }) {
         <h3>Enter Item</h3>
         <div>
           <form className={classes.root} noValidate autoComplete="off">
-            {forms.map((el, index) => (
-              <div key={el + index}>
-                <TextField
-                  id="standard-basic"
-                  label="Enter Item Name"
-                  type="text"
-                  name="name"
-                  value={el.name}
-                  onChange={(e) => handleChange(e, index, "name")}
-                />
+            <div>
+              {forms.map((el, index) => (
+                <div key={el + index}>
+                  <TextField
+                    id="standard-basic"
+                    label="Enter Item Name"
+                    type="text"
+                    name="name"
+                    value={el.name}
+                    onChange={(e) => handleChange(e, index, "name")}
+                  />
 
-                <TextField
-                  id="standard-basic"
-                  label="Enter Item Price"
-                  type="number"
-                  name="price"
-                  value={el.price}
-                  onChange={(e) => handleChange(e, index, "price")}
-                />
+                  <TextField
+                    id="standard-basic"
+                    label="Enter Item Price"
+                    type="number"
+                    name="price"
+                    value={el.price}
+                    onChange={(e) => handleChange(e, index, "price")}
+                  />
 
-                <TextField
-                  id="standard-basic"
-                  label="Enter Brand"
-                  type="text"
-                  name="brand"
-                  value={el.brand}
-                  onChange={(e) => handleChange(e, index, "brand")}
-                />
+                  <TextField
+                    id="standard-basic"
+                    label="Enter Brand"
+                    type="text"
+                    name="brand"
+                    value={el.brand}
+                    onChange={(e) => handleChange(e, index, "brand")}
+                  />
 
-                <TextField
-                  id="standard-basic"
-                  label="Enter Category"
-                  type="text"
-                  name="category"
-                  value={el.category}
-                  onChange={(e) => handleChange(e, index, "category")}
-                />
-                <TextField
-                  id="standard-basic"
-                  label="Enter Expiry Date"
-                  type="text"
-                  name="expiryDate"
-                  value={el.expiryDate}
-                  onChange={(e) => handleChange(e, index, "expiryDate")}
-                />
+                  <TextField
+                    id="standard-basic"
+                    label="Enter Category"
+                    type="text"
+                    name="category"
+                    value={el.category}
+                    onChange={(e) => handleChange(e, index, "category")}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    label="Enter Expiry Date"
+                    type="text"
+                    name="expiryDate"
+                    value={el.expiryDate}
+                    onChange={(e) => handleChange(e, index, "expiryDate")}
+                  />
 
-                <TextField
-                  id="standard-basic"
-                  label="Enter Quantity"
-                  type="number"
-                  name="quantity"
-                  value={el.quantity}
-                  onChange={(e) => handleChange(e, index, "quantity")}
-                />
+                  <TextField
+                    id="standard-basic"
+                    label="Enter Quantity"
+                    type="number"
+                    name="quantity"
+                    value={el.quantity}
+                    onChange={(e) => handleChange(e, index, "quantity")}
+                  />
 
-                <InputLabel id="label">Choose unit:</InputLabel>
-                <Select
-                  labelId="label"
-                  id="select"
-                  value={el.unit}
-                  onChange={(e) => handleChange(e, index, "unit")}
-                >
-                  <MenuItem value="liters">L</MenuItem>
-                  <MenuItem value="grams">GR</MenuItem>
-                </Select>
-              </div>
-            ))}
+                  <InputLabel id="label">Choose unit:</InputLabel>
+                  <Select
+                    labelId="label"
+                    id="select"
+                    value={el.unit}
+                    onChange={(e) => handleChange(e, index, "unit")}
+                  >
+                    <MenuItem value="liters">L</MenuItem>
+                    <MenuItem value="grams">GR</MenuItem>
+                  </Select>
+                </div>
+              ))}
+            </div>
             <Button variant="contained" color="primary" onClick={addNewForm}>
               Add New Item
             </Button>

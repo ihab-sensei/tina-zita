@@ -42,12 +42,12 @@ export default function Inventorytable({ inventory }) {
         <TableHead>
           <TableRow>
             <StyledTableCell>Product Name </StyledTableCell>
-            <StyledTableCell align="right">Brand</StyledTableCell>
+            <StyledTableCell align="right">Code</StyledTableCell>
             <StyledTableCell align="right">Quantity</StyledTableCell>
             <StyledTableCell align="right">Unit</StyledTableCell>
             <StyledTableCell align="right">Price</StyledTableCell>
             <StyledTableCell align="right">Category</StyledTableCell>
-            <StyledTableCell align="right">Expiry date</StyledTableCell>
+            <StyledTableCell align="right">Expire date</StyledTableCell>
             <StyledTableCell align="right">Edit</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -57,7 +57,7 @@ export default function Inventorytable({ inventory }) {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.brand}</StyledTableCell>
+              <StyledTableCell align="right">{row.code}</StyledTableCell>
               <StyledTableCell align="right">{row.quantity}</StyledTableCell>
               <StyledTableCell align="right">{row.unit} </StyledTableCell>
               <StyledTableCell align="right">{row.price} TL</StyledTableCell>
