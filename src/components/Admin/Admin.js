@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 import ExpiringProducts from "./ExpiringProducts";
-import MonthlyReview from "./MonthlyReview";
-import Notes from "./Notes";
+import ReviewContainer from "./reviewContainer"
+import NoteContainer from "./NoteContainer";
 import OrderInProgress from "./OrderInProgress";
 import OutOfStock from "./OutOfStock";
 import Card from "./Card"
@@ -24,8 +24,8 @@ export default function Admin() {
       <ExpiringProducts />
       <OutOfStock />
      <OrderInProgress />
-      <Notes />
-      <MonthlyReview />
+      <NoteContainer />
+      <ReviewContainer />
     </div>
   );
 }

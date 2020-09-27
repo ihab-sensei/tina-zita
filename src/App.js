@@ -9,7 +9,7 @@ import Bills from "../src/components/Bills/Bills";
 import Recipes from "../src/components/Recipes/Recipes";
 import Orders from "../src/components/Orders/Order";
 import Drawer from "../src/components/Drawer/Drawer";
-
+import Footer from "../src/components/Footer/Footer";
 function App() {
   return (
     <Router>
@@ -21,6 +21,7 @@ function App() {
         <Route path="/orders" component={Orders} />
         <Route path="/recipes" component={Recipes} />
       </div>
+      <Footer />
     </Router>
   );
 }
