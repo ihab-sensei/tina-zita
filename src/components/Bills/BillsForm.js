@@ -39,7 +39,7 @@ export default function BillsForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    alert("Success! Your bills list has been updated.");
     // addRecipe();
   };
   const handleChange = (e, index, name) => {
@@ -51,7 +51,7 @@ export default function BillsForm() {
       return newForms;
     });
   };
-  const addNewForm = () => {
+  const addNewItem = () => {
     setForms([
       ...forms,
       { name: "", unitPrice: 0, quantity: 0, totalPrice: 0 },
@@ -116,10 +116,10 @@ export default function BillsForm() {
                 </select> */}
             </div>
           ))}
-          <Button variant="contained" color="primary" onClick={addNewForm}>
+          <Button variant="contained" color="primary" onClick={addNewItem}>
             Add New Item
           </Button>
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" onClick={handleSubmit}>
             Submit
           </Button>
         </form>

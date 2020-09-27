@@ -27,7 +27,7 @@ export default function Orders() {
   const [form, setForm] = useState({ forms: ["form0"] });
   const [input, setInput] = useState({
     code: "",
-    quantity: "",
+    quantity: 0,
   });
 
   const handleChange = (e) => {
@@ -38,7 +38,7 @@ export default function Orders() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Success!");
+    alert("Success! The order has been added.");
     // setAlert(true);
   };
   const addNewFood = (e) => {
@@ -65,7 +65,7 @@ export default function Orders() {
                 id="outlined-helperText"
                 helperText="Enter Quantity"
                 variant="outlined"
-                type="text"
+                type="number"
                 name={"quantity" + el}
                 value={el.quantity}
                 onChange={(e) => handleChange(e)}

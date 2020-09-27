@@ -9,10 +9,6 @@ import { Button } from "@material-ui/core";
 // import FormControl from '@material-ui/core/FormControl';
 
 export default function Recipes() {
-  // const [recipeName, setRecipeName] = useState("");
-  // const [ingredients, setIngredients] = useState([]);
-  // const [quantity, setQuantity] = useState([]);
-  // const [unit, setUnit] = useState([]);
   const [forms, setForms] = useState([
     {
       ingredientName: "",
@@ -21,16 +17,15 @@ export default function Recipes() {
       unit: "",
     },
   ]);
-
-  // const addRecipe = () => {
-  //   console.log(forms.code);
-  //   db.collection("recipe").doc().set({
-  //     ingredientName: forms.ingredientName,
-  //     code: forms.code,
-  //     quantity: forms.quantity,
-  //     unit: forms.unit,
-  //   });
-  // };
+  console.log(forms);
+  const addRecipe = () => {
+    db.collection("recipe")
+      .doc()
+      .set({
+        ingredients: [...forms],
+        recipeName: "Falafel",
+      });
+  };
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,11 +37,13 @@ export default function Recipes() {
   }));
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // addRecipe();
+    e.preventDefault(e);
+    console.log("hello");
+    alert("Success! Your recipe list has been updated.");
+    addRecipe();
   };
   const handleChange = (e, index, name) => {
+    console.log("hello");
     // [e.target.name]: e.target.value,
     e.persist();
     setForms((prevForms) => {
@@ -67,38 +64,34 @@ export default function Recipes() {
       <h3>Enter Order</h3>
       <div>
         <form
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           className={classes.root}
           noValidate
           autoComplete="off"
         >
           {forms.map((el, index) => (
             <div key={el + index}>
-              <TextField id="standard-basic" label="Enter Ingredient Name:">
-                <input
-                  type="text"
-                  name="ingredientName"
-                  value={el.ingredientName}
-                  onChange={(e) => handleChange(e, index, "ingredientName")}
-                ></input>{" "}
-              </TextField>
-              <TextField id="standard-basic" label="Enter Ingredient Code:">
+              <TextField
+                id="standard-basic"
+                label="Enter Ingredient Name:"
+                value={el.ingredientName}
+                onChange={(e) => handleChange(e, index, "ingredientName")}
+              ></TextField>
+              <TextField
+                id="standard-basic"
+                label="Enter Ingredient Code:"
+                value={el.code}
+                onChange={(e) => handleChange(e, index, "code")}
+              >
                 {" "}
-                <input
-                  type="text"
-                  name="code"
-                  value={el.code}
-                  onChange={(e) => handleChange(e, index, "code")}
-                ></input>
               </TextField>
-              <TextField id="standard-basic" label="Enter Quantity:">
+              <TextField
+                id="standard-basic"
+                label="Enter Quantity:"
+                value={el.quantity}
+                onChange={(e) => handleChange(e, index, "quantity")}
+              >
                 {" "}
-                <input
-                  type="number"
-                  name="quantity"
-                  value={el.quantity}
-                  onChange={(e) => handleChange(e, index, "quantity")}
-                ></input>
               </TextField>
               <InputLabel id="label">Choose unit:</InputLabel>
               <Select
@@ -123,7 +116,7 @@ export default function Recipes() {
           <Button variant="contained" color="primary" onClick={addNewForm}>
             Add New Ingredient
           </Button>
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" onClick={handleSubmit}>
             Submit
           </Button>
         </form>
