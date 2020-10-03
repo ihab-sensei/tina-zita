@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tina-zita/static/css/main.66b87390.chunk.css",
+    "main.js": "/tina-zita/static/js/main.85ce5fc3.chunk.js",
+    "main.js.map": "/tina-zita/static/js/main.85ce5fc3.chunk.js.map",
+    "runtime-main.js": "/tina-zita/static/js/runtime-main.f60e141e.js",
+    "runtime-main.js.map": "/tina-zita/static/js/runtime-main.f60e141e.js.map",
+    "static/js/2.30ca790f.chunk.js": "/tina-zita/static/js/2.30ca790f.chunk.js",
+    "static/js/2.30ca790f.chunk.js.map": "/tina-zita/static/js/2.30ca790f.chunk.js.map",
+    "index.html": "/tina-zita/index.html",
+    "precache-manifest.5f084bb7e95754766c62b451b2a3089b.js": "/tina-zita/precache-manifest.5f084bb7e95754766c62b451b2a3089b.js",
+    "service-worker.js": "/tina-zita/service-worker.js",
+    "static/css/main.66b87390.chunk.css.map": "/tina-zita/static/css/main.66b87390.chunk.css.map",
+    "static/js/2.30ca790f.chunk.js.LICENSE.txt": "/tina-zita/static/js/2.30ca790f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f60e141e.js",
+    "static/js/2.30ca790f.chunk.js",
+    "static/css/main.66b87390.chunk.css",
+    "static/js/main.85ce5fc3.chunk.js"
+  ]
+}

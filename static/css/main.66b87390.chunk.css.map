@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css","style.css"],"names":[],"mappings":"AAAA,EACE,qBAAsB,CACtB,QAAS,CACT,SACF,CCJA,uFACE,cAAe,CACf,gBAAiB,CACjB,gBACF","file":"main.66b87390.chunk.css","sourcesContent":["* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n",".ordersContainer {\n  margin-top: 5em;\n  margin-left: 18em;\n  margin-right: 1em;\n}\n"]}
