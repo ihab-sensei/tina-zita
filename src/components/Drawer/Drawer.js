@@ -151,13 +151,6 @@ export default function ClippedDrawer() {
                 color: "red",
               }}
             >
-              <ListItem button key={"bills"}>
-                <ListItemIcon>
-                  <ReceiptIcon />
-                </ListItemIcon>
-
-                <ListItemText primary={"Bills"} />
-              </ListItem>
             </NavLink>
           </List>
         </div>

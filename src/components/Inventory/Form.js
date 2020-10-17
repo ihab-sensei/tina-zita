@@ -16,7 +16,6 @@ export default function Form({ inventory, reFetch }) {
       unit: "",
       quantity: 0,
       category: "",
-      expiryDate: "",
       code: "",
     },
   ]);
@@ -57,7 +56,6 @@ export default function Form({ inventory, reFetch }) {
           unit: "",
           brand: "",
           category: "",
-          expiryDate: "",
         },
       ]);
     };
@@ -123,15 +121,7 @@ export default function Form({ inventory, reFetch }) {
                     value={el.category}
                     onChange={(e) => handleChange(e, index, "category")}
                   />
-                  <TextField
-                    id="standard-basic"
-                    label="Enter Expiry Date"
-                    type="text"
-                    name="expiryDate"
-                    value={el.expiryDate}
-                    onChange={(e) => handleChange(e, index, "expiryDate")}
-                  />
-
+                  
                   <TextField
                     id="standard-basic"
                     label="Enter Quantity"
