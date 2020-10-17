@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Inventorytable({ inventory }) {
+export default function InventoryTable({ inventory }) {
   const classes = useStyles();
 
   return (
@@ -47,7 +47,7 @@ export default function Inventorytable({ inventory }) {
             <StyledTableCell align="right">Unit</StyledTableCell>
             <StyledTableCell align="right">Price</StyledTableCell>
             <StyledTableCell align="right">Category</StyledTableCell>
-            <StyledTableCell align="right">Expire date</StyledTableCell>
+    
             <StyledTableCell align="right">Edit</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -62,7 +62,6 @@ export default function Inventorytable({ inventory }) {
               <StyledTableCell align="right">{row.unit} </StyledTableCell>
               <StyledTableCell align="right">{row.price} TL</StyledTableCell>
               <StyledTableCell align="right">{row.category}</StyledTableCell>
-              <StyledTableCell align="right">{row.expiryDate}</StyledTableCell>
               <StyledTableCell align="right">
                 <Button variant="contained" color="primary">
                   Edit

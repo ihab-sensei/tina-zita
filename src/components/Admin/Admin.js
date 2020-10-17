@@ -11,21 +11,14 @@ import Card2 from "./Card2";
 export default function Admin() {
   return (
     <div className="adminContainer">
-      <div>
-        <h1 style={{ textAlign: "center", margin: "10px 0" }}>
-          Trending Recipes
-        </h1>
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
-          <Card />
-          <Card2 />
-        </div>
-      </div>
+      
+      {/*Make a graph/chart for the most ordered products */}
 
-      <ExpiringProducts />
+      
       <OutOfStock />
-      <OrderInProgress />
+      
       <NoteContainer />
-      <ReviewContainer />
+      
     </div>
   );
 }
